@@ -1,2 +1,0 @@
-# nvpcteste
-testes nvpc
