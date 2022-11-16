@@ -1,12 +1,10 @@
 import { faker } from '@faker-js/faker';
+import { first } from 'lodash';
 
 describe('Suite de Teste', () => {
   
-  const baseUrl = 'https://commerce-hmg-fiatbarigui.mob1.one/';
-  const randonName = faker.name.fullName();
-  const randonEmail = faker.internet.email();
-  const randonPass = faker.internet.password(6);
 
+  const baseUrl = 'https://commerce-hmg-fiatbarigui.mob1.one/';
 
   let newfirstName = 'teste'
   let newlastName = 'nvpc'
@@ -23,17 +21,11 @@ describe('Suite de Teste', () => {
   cy.visit(baseUrl);
 })
   
-it ('6.d-h - login, token, email válido e codigo inválido.', () => {
-  //serviço token off
-  cy.get('.header-signin-text span').last().parents().first().click()
-  cy.get('.modal').should('be.visible');
-  cy.get('.modalBody .outlineBtn').click();  
-  cy.get('.modalBody input[name="email"]').type(Email);
-  cy.get('.formBottom > .MuiButtonBase-root').click({force: true});
-  cy.get('.MuiInputBase-input').should('be.visible');
-  cy.get('.modalBody input[name="code"]').type(newPass);
-  cy.contains('button', 'Acessar').click();
-  cy.get('.MuiFormHelperText-root').should('have.text', 'O código digitado é inválido ou expirou. Verifique e tente novamente.')
-})
-
+  it('', () => {
+    
+    for(let clickedIndex = 2; clickedIndex <= 6; clickedIndex++) {
+        cy.get(`a.nav-link:nth-child(${clickedIndex})`).click();
+        cy.get('.section .product-box-header').should('be.visible');
+       }
+  })
 });
